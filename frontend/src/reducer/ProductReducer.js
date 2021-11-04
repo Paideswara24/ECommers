@@ -15,7 +15,7 @@ export function ProductReducer(state = init, action) {
                 error: action.error
             }
         default:
-            state;
+            return state;
 
     }
 }
