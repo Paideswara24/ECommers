@@ -4,13 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
 import { Provider } from 'react-redux';
 import { ProductReducer } from './reducer/ProductReducer';
 import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import DetailReducer from './reducer/DetailReducer';
 
-const store = createStore(ProductReducer, applyMiddleware(thunk));
+const rootReducer = combineReducers({
+  "products": ProductReducer,
+  "details": DetailReducer
+})
+const store = createStore(rootReducer, applyMiddleware(thunk));
+// console.log(store)
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
