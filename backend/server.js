@@ -15,6 +15,9 @@ const app = express();
 //Enable the cors policy
 app.use(cors());
 
+//MIME type
+app.use(express.json());
+
 mongooes.connect("mongodb+srv://admin:admin@testcluster.w9ndz.mongodb.net/ecommer-main-pro?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
