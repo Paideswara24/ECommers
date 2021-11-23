@@ -1,6 +1,59 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import DetailsActions from '../actions/DetailsActions';
+import LoadingBox from '../component/LoadingBox';
+import MessageBox from '../component/MessageBox';
+import { NavLink } from 'react-router-dom'
+import Reating from '../component/Reating';
 
-function DetailsScreen() {
+function DetailsScreen(props) {
 
+    const id = props.match.params.id;
+
+    const result = useSelector(state => state.details);
+    const { loading, productss, error } = result;
+    console.log(result);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(DetailsActions(id))
+    }, [])
+    return (
+        <React.Fragment>
+            {!loading ? (<LoadingBox></LoadingBox>) : error === "Network Error" ? (<MessageBox variant="danger">{error}</MessageBox>) :
+                (<div>
+                    <NavLink to="/" exact={true} strict><i className="fa fa-arrow-circle-left" style={{ color: "blue" }}> Back</i></NavLink>
+                    <div className="row top">
+                        <div className="col-2">
+                            <img src={productss.image} className="large" alt={productss.name}></img>
+                        </div>
+                        <div className="col-1">
+                            <ul>
+                                <li>
+                                    <h1>{productss.name}</h1>
+                                </li>
+                                <li>{productss.brand}</li>
+                                <li>
+                                    <Reating rating={productss.rating} numReviews={productss.numReviews}></Reating>
+                                </li>
+                                <li>
+                                    ${productss.price}
+                                </li>
+                                <li>
+                                    {productss.description}
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="col-1">
+
+                        </div>
+                    </div>
+                    {/* <h1>{JSON.stringify(productss)}</h1> */}
+                </div>
+                )
+            }
+
+        </React.Fragment >
+    )
 }
-export default DetailsScreen;
+export default DetailsScreen

@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   "details": DetailReducer
 })
 const store = createStore(rootReducer, applyMiddleware(thunk));
-// console.log(store)
+// console.log(rootReducer.details);
 
 ReactDOM.render(
   <React.StrictMode>

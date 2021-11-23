@@ -6,6 +6,7 @@ export const listProducts = () => {
         dispatch({ type: LIST_PRODUCTS, loading: false, products: [], error: "" });
         try {
             const { data } = await axios.get('http://localhost:8080/product');
+            console.log(data)
             dispatch({ type: LIST_PRODUCTS_SUCCESS, loading: true, products: data, error: "" })
         } catch (err) {
             dispatch({ type: LIST_PRODUCTS_FAIL, loading: true, products: [], error: err.message })

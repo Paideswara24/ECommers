@@ -1,30 +1,32 @@
 import axios from "axios";
+
 import { DETAILS_LOADING, DETAILS_LOADING_FAIL, DETAILS_LOADING_SUCCESS } from '../constants/DetailsConstant';
+
 const DetailsActions = (id) => {
     return async (dispatch) => {
         dispatch({
             type: DETAILS_LOADING,
             loading: false,
-            products: {},
+            productss: {},
             error: ""
         })
         try {
-            const { data } = await axios.get(`http://loaclhost:8080/product/${id}`)
+            const { data } = await axios.get(`http://localhost:8080/product/${id}`);
+            console.log(data)
             dispatch({
                 type: DETAILS_LOADING_SUCCESS,
                 loading: true,
-                products: data,
+                productss: data,
                 error: ""
             })
         } catch (err) {
             dispatch({
                 type: DETAILS_LOADING_FAIL,
                 loading: true,
-                products: {},
+                productss: {},
                 error: err.message
             })
         }
     }
 }
-export default DetailsActions
-
+export default DetailsActions;

@@ -1,8 +1,8 @@
-import { DETAILS_LOADING_FAIL, DETAILS_LOADING_SUCCESS } from "../constants/DetailsConstant";
+import { DETAILS_LOADING, DETAILS_LOADING_FAIL, DETAILS_LOADING_SUCCESS } from "../constants/DetailsConstant";
 
 const initialState = {
     loading: false,
-    product: {},
+    productss: {},
     error: ""
 }
 const DetailReducer = (state = initialState, action) => {
@@ -13,11 +13,11 @@ const DetailReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: action.loading,
-                product: action.product,
+                productss: action.productss,
                 error: action.error
             }
         default:
-            return state
+            return state;
     }
 
 }

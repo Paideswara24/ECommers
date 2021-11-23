@@ -14,6 +14,7 @@ function HomeScreen() {
     const dispatch = useDispatch();
     const { loading, products, error } = result;
 
+    //data main
     useEffect(() => {
         dispatch(listProducts());
     }, [])

@@ -109,3 +109,24 @@ a {
 .card-bo {
   align-items: center;
 }
+.row .start {
+  align-items: flex-start;
+}
+.col-2 {
+  flex: 2 1 50rem;
+}
+.col-1 {
+  flex: 1 1 25rem;
+}
+.img.large {
+  width: 80%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+li {
+  margin-top: 0.3rem;
+}

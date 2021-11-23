@@ -1,9 +1,8 @@
 import HomeScreen from './screens/HomeScreen';
 import './App.css';
 import React from 'react';
-
-
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+import DetailsScreen from './screens/DetailsScreen';
 
 // import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 
@@ -24,7 +23,7 @@ function App() {
 
           <main>
             <Route path="/" component={HomeScreen} exact={true} strict></Route>
-
+            <Route path="/details/:id" component={DetailsScreen} exact={true} strict></Route>
           </main>
 
           <footer className="row center">
