@@ -5,6 +5,7 @@ function LoadingBox() {
         <React.Fragment>
             <div className="loading">
                 <i className="fa fa-spinner fa-spin"></i>Loading...!!!
+                <i>Hello</i>
             </div>
         </React.Fragment>
     )

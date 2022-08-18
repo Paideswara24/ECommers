@@ -9,7 +9,7 @@ export const listProducts = () => {
             console.log(data)
             dispatch({ type: LIST_PRODUCTS_SUCCESS, loading: true, products: data, error: "" })
         } catch (err) {
-            dispatch({ type: LIST_PRODUCTS_FAIL, loading: true, products: [], error: err.message })
+            dispatch({ type: LIST_PRODUCTS_FAIL, loading: true, products: [], error: err.message });
         }
     }
 }
